@@ -69,7 +69,10 @@ public class FileUploader {
       }
 
       // Upload the zip file to the bucket with putObject
-      minioClient.putObject("asiatrip","asiaphotos.zip", "/home/user/Photos/asiaphotos.zip");
+      PutObjectOptions options = new PutObjectOptions(-1, 55838);
+      minioClient.putObject("asiatrip","asiaphotos.zip", "/home/user/Photos/asiaphotos.zip", options);
+      
+
       System.out.println("/home/user/Photos/asiaphotos.zip is successfully uploaded as asiaphotos.zip to `asiatrip` bucket.");
     } catch(MinioException e) {
       System.out.println("Error occurred: " + e);
